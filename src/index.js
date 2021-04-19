@@ -2,10 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client/react';
-import App from './views/App';
-import './index.css';
-
+import routes from './routes';
+import Layout from './routes/Layout'
 import reportWebVitals from './reportWebVitals';
+
+import './index.css';
 
 const client = new ApolloClient({
   uri: 'https://beta.pokeapi.co/graphql/v1beta',
@@ -14,7 +15,7 @@ const client = new ApolloClient({
 
 render(
   <ApolloProvider client={client}>
-    <App />
+    <Layout routes={routes}/>
   </ApolloProvider>,
   document.getElementById('root'),
 );

@@ -17,7 +17,7 @@ const Layout = (props) => {
           <div>
             <img className="logo" src={logo} alt="" />
           </div>
-          <Link className="btn-nav">Home</Link>
+          <Link className="btn-nav" to="/">Home</Link>
           <Link className="btn-nav">Compare</Link>
         </div>
         

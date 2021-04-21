@@ -6,6 +6,7 @@ import routes from './routes';
 import Layout from './routes/Layout'
 import reportWebVitals from './reportWebVitals';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 const client = new ApolloClient({

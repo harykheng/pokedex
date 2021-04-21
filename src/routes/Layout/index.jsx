@@ -18,12 +18,8 @@ const Layout = (props) => {
             <img className="logo" src={logo} alt="" />
           </div>
           <Link className="btn-nav" to="/">Home</Link>
-          <Link className="btn-nav">Compare</Link>
+          <Link className="btn-nav" to="/compare">Compare</Link>
         </div>
-        
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           {props.routes.map((route,index) => (
             <Route exact key={`layout-${index}`} path={route.path} component={route.component}/>

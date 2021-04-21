@@ -1,3 +1,31 @@
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.pokemon-filter {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  input {
+    width: 200px;
+    margin-right: 20px;
+  }
+
+  select {
+    width: 210px;
+    margin-right: 20px;
+  }
+}
+
+.pokemon-loading {
+  text-align: center;
+  margin-top: 50px;
+
+  img {
+    width: 100px;
+    animation: spin 4s linear infinite;
+  }
+}
+
 .pokemon-list-section {
   margin: 40px;
   display: flex;
@@ -18,6 +46,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      img {
+        width: 90px;
+      }
     }
 
     .pokemon-name {

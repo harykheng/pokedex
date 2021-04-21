@@ -2,30 +2,12 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import get from 'lodash/get';
 
+import { pokemonColor } from '../../../constant/pokemonColor';
 import './styles.scss';
 
-const bgColors = {
-	fire: '#FDDFDF',
-	grass: '#DEFDE0',
-	electric: '#FCF7DE',
-	water: '#DEF3FD',
-	ground: '#f4e7da',
-	rock: '#d5d5d4',
-	fairy: '#fceaff',
-	poison: '#98d7a5',
-	bug: '#f8d5a3',
-	dragon: '#97b3e6',
-	psychic: '#eaeda1',
-	flying: '#F5F5F5',
-	fighting: '#E6E0D4',
-	normal: '#F5F5F5'
-};
+import whoPokemon from '../../../assets/whoPokemon.png';
 
 const ModalDetail = ({ show, onHide, data }) => {
-
-  console.log(
-    data
-  )
 
   const getAbility = get(data, ['pokemon_v2_pokemonabilities'],[]);
   const getTypes = get(data, ['pokemon_v2_pokemontypes'], []);
@@ -38,9 +20,13 @@ const ModalDetail = ({ show, onHide, data }) => {
     return <span>{parseText(ability.pokemon_v2_ability.name)}{getAbility.length === index+1 ? '' : ', '}</span>
   })
 
-  const pokemenTypes = getTypes.map((type, index) => {
-    return <span className="badge-type" style={{ backgroundColor: bgColors[type.pokemon_v2_type.name]}}>{parseText(type.pokemon_v2_type.name)}</span>
+  const pokemenTypes = getTypes.map((type) => {
+    return <span className="badge-type" style={{ backgroundColor: pokemonColor[type.pokemon_v2_type.name]}}>{parseText(type.pokemon_v2_type.name)}</span>
   })
+
+  const handleCrashImg = (e) => {
+    e.target.src = whoPokemon;
+  }
 
   return(
     <Modal
@@ -55,7 +41,7 @@ const ModalDetail = ({ show, onHide, data }) => {
       </Modal.Header>
       <div className="modal-body-detail">
         <div style={{ width: '50%'}}>
-          <img src={`https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`} alt={data.name}/>
+          <img src={`https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`} alt={data.name} onError={handleCrashImg}/>
         </div>
         <div style={{ width: '50%'}}>
           <p>Height : {data.height*10} cm</p>

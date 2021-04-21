@@ -23,17 +23,19 @@ const getListPokemon = gql`
 `;
 
 export const useListPokemon = (callData) => {
-  console.log(callData)
   
-  const { data } = useQuery(getListPokemon, {
+  const { loading, data } = useQuery(getListPokemon, {
     variables: { 
       limit: 30, 
       offset: callData.offset,
-      where: { name: { _iregex: ''}}
+      where: { 
+        name: { _iregex: callData.name },
+        pokemon_v2_pokemontypes: { pokemon_v2_type: {name: {_iregex: callData.type } } }
+      }
     }
   });
 
   const listPokemon = get(data, ['pokemon_v2_pokemon']);
 
-  return { listPokemon }
+  return { listPokemon, loading }
 }

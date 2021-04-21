@@ -23,10 +23,9 @@ const getListPokemon = gql`
 `;
 
 export const useListPokemon = (callData) => {
-  
   const { loading, data } = useQuery(getListPokemon, {
     variables: { 
-      limit: 30, 
+      limit: callData.limit || 30, 
       offset: callData.offset,
       where: { 
         name: { _iregex: callData.name },

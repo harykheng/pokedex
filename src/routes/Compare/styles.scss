@@ -1,0 +1,22 @@
+.pokemon-compare {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  .list-pokemon-compare {
+    width: 200px;
+  }
+
+  .pokemon-vs {
+    margin: 6px 18px;
+  }
+}
+
+.pokemon-table {
+  margin-top: 50px;
+  text-align: center;
+
+  .pokemon-img {
+    width: 200px;
+  }
+}

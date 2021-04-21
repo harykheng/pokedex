@@ -16,6 +16,7 @@ import whoPokemon from '../../assets/whoPokemon.png';
 
 const Home = () => {
   const [filter, setFilter] = useState({
+    limit: 30,
     offset: 0,
     name: "",
     type: ""
